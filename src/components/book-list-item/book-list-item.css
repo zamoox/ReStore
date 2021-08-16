@@ -1,0 +1,32 @@
+.card {
+    flex-grow: 1;
+}
+.card-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.image-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 180px;
+    margin: 1.2em;
+}
+
+.image-cover img{
+    justify-self: right;
+    max-width: 100%;
+    height: 250px;
+}
+
+.card-text {
+    padding-top: 1rem;
+}
+
+.addButton {
+    width: 8em;
+    margin-left: -1em;
+    
+}

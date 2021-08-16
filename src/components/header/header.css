@@ -1,0 +1,46 @@
+/* .navbar {
+    width: 100%;
+    position: fixed;
+    z-index:100;
+} */
+
+.cart {
+    font-size: 2em;
+    font-weight:bold;
+    color: #888888;
+}
+
+.cart-wrap {
+    margin-right: 20px;
+}
+
+.cart:hover {
+    color: #cccccc;
+    cursor: pointer;
+    outline: none;
+}
+
+#items-count {
+    display: none;
+    text-align: center;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    background-color: greenyellow;
+    position: absolute;
+    margin: -10px;
+    padding-top: 4px;
+    animation: omega 0.2s ease-in;
+
+}
+
+@keyframes omega {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

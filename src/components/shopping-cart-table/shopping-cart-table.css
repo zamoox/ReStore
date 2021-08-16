@@ -1,0 +1,18 @@
+.table-wrap {
+    margin-top: 2em;
+}
+
+.button-wrap {
+    display: flex;
+}
+
+button {
+    margin-left: 5px;
+    padding: 0px !important;
+    width: 3.5em;
+    height: 3em;
+}
+
+span {
+    font-size: 1.3em;
+}

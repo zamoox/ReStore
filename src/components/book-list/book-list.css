@@ -1,0 +1,12 @@
+.list-group {
+    flex-grow: 1;
+    margin-left: 25px;
+}
+
+.list-group li {
+    display: inline-block;
+}
+
+.not-found {
+    margin: 100px auto;
+}
