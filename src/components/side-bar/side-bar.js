@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './side-bar.css';
-import BookListItem from '../book-list-item';
-import Spinner from '../spinner';
-import ErrorIndicator from '../error-indicator';
-import { withBookstoreService } from '../hoc';
 import { booksLoaded, booksRequested, booksError, fetchBooks, bookAddedToCart } from '../../actions';
-import { filterBy } from '../../utils'; 
+
 
 class SideBar extends Component {
 
