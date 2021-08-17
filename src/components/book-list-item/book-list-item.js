@@ -17,18 +17,21 @@ const BookListItem = ({ book, onAddedToCart }) => {
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">{genre}</li>
                         </ul>
-                        <div className="card-body">
+                        <div className="card-bottom-line">
                             <button 
-                            type="button" 
-                            className="addButton btn btn-info disabled"
-                            onClick={onAddedToCart}>add to cart</button>
+                                type="button" 
+                                className="addButton btn btn-info disabled"
+                                onClick={onAddedToCart}>add to cart
+                            </button>
+                            <div className="price-wrap">
+                                <div className="price">
+                                    <h3>{price}</h3>
+                                    <span>$</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
-                
-                <h4 className="card-header">{price}$</h4>
-                
             </div>
         </div>    
     )

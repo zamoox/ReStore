@@ -13,14 +13,25 @@ class SideBar extends Component {
 
     state = {
         genres: ["fantasy", "science fiction", "novel", "legend", "criminal"],
-        onChecked: false  
+        iconClass: "toggler fas fa-bars"
     }
 
     wrapperRef = React.createRef();
 
+
     onToggle = () => {
         const wrapper = this.wrapperRef.current;
         wrapper.classList.toggle('is-nav-open');
+        let clazz = wrapper.classList.contains('is-nav-open') ? "toggler fas fa-times" :
+        "toggler fas fa-bars";
+        this.setState({  
+            iconClass: clazz    
+        })
+    }
+
+    isNavOpen = () => {
+        const bar = document.getElementById('wrapper');
+        console.log(bar);
     }
 
     handleCheckbox = (e) => {
@@ -34,10 +45,10 @@ class SideBar extends Component {
     render () {                    
 
         const { onGenreClick } = this.props;
-        const { genres } = this.state;
+        const { genres, iconClass } = this.state;
 
         return (
-            <div ref={this.wrapperRef} className="wrapper">
+            <div ref={this.wrapperRef} className="wrapper" id="wrapper">
                 <div className="side-bar">
                         <div className="side-bar-content">
                             <span className="head">Genres</span>
@@ -60,7 +71,7 @@ class SideBar extends Component {
                                 }
                             </ul>
                         </div>
-                        <i onClick={this.onToggle} className="toggler fas fa-hamburger"></i>
+                        <i onClick={this.onToggle} className={iconClass}></i> 
                 </div>
             </div>
         );    

@@ -4,7 +4,7 @@ const initialState = {
     loading: true,
     error: null,
     cartItems: [],
-    total: 210
+    total: 0
 }
 
 
@@ -14,9 +14,13 @@ const updateOrder = (state, bookId, quantity) => {
     const idx = cartItems.findIndex(({id}) => bookId === id );
     const item = cartItems[idx];
     const newItem = updateCartItem(book, item, quantity);
+    const newCartItems = updateCartItems(cartItems, newItem, idx);
+    const newTotal = newCartItems.reduce( (acc, e) => e.total + acc, 0);
+    
     return {
         ...state,
-        cartItems: updateCartItems(cartItems, newItem, idx)
+        cartItems: newCartItems,
+        total: newTotal
     }
 } 
 
