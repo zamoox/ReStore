@@ -1,4 +1,4 @@
-.list-group {
+.list-group-wrapper {
     flex-grow: 1;
     margin-left: 25px;
 }
@@ -9,4 +9,41 @@
 
 .not-found {
     margin: 100px auto;
+}
+
+.view-mode-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.view-mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50px;
+    margin-right: 25px;
+}
+
+.view-mode i {
+        color: black;
+        font-size: 1.5em;
+        z-index: 1;
+}
+    
+.view-mode i:hover {
+        opacity: 0.4;
+        color:greenyellow;
+        cursor: pointer;
+        outline: none;
+        transition: .1s ease-in;
+}
+
+.active-view-icon {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.block-list {
+    flex-direction: row;
 }

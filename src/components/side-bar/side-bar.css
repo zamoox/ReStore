@@ -25,6 +25,7 @@
     left: 355px;
     top: 10px;
     color: black;
+    opacity: 0.4;
     font-size: 2em;
     z-index: 1;
 }
@@ -34,7 +35,7 @@
     color: greenyellow;
     cursor: pointer;
     outline: none;
-    transition: .3s ease-in;
+    transition: .15s ease-in;
 }
 
 .side-bar .head {

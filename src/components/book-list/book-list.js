@@ -10,33 +10,47 @@ import { booksLoaded, booksRequested, booksError, fetchBooks, bookAddedToCart } 
 import { filterBy } from '../../utils'; 
 
 
-const BookList = ({books, onAddedToCart}) => {
+const BookList = ({books, onAddedToCart, viewMode}) => {
     return (
-        <div className="list-group">
-            {
-                books.map((book) => {
-                    return (
-                        <li key={book.id}>
-                            <BookListItem 
-                            book={book}
-                            onAddedToCart={() => onAddedToCart(book.id)} 
-                            />
-                        </li>
-                    ) 
-                })
-            }
-        </div>
+            <div className={viewMode}>
+                {
+                    books.map((book) => {
+                        return (
+                            <li key={book.id}>
+                                <BookListItem 
+                                book={book}
+                                onAddedToCart={() => onAddedToCart(book.id)} 
+                                />
+                            </li>
+                        ) 
+                    })
+                }
+            </div>
     );    
 }
 
 class BookListContainer extends Component {
 
+    state = {
+        isActiveIcon: 'false'
+    }
+
     componentDidMount () {
         this.props.fetchBooks();
     }
 
+
+    toggleViewMode () {
+        this.setState(state => {
+            return {
+             isActiveIcon: !state.isActiveIcon
+            }
+        })
+    }
+
     render () {
         const { books, loading, error, label, genre, onAddedToCart } = this.props;
+        const { isActiveIcon } = this.state;
 
         if (loading) {
             return (
@@ -53,12 +67,25 @@ class BookListContainer extends Component {
         const filteredBooks = filterBy(books, ['title','author'], label);
         const visibleBooks = filterBy(filteredBooks, ['genre'], genre);
 
+
         if(!visibleBooks) {
             return <h3 className='not-found text-muted mg-auto'>Books not found</h3>
         }
 
-        return <BookList books={visibleBooks} onAddedToCart={onAddedToCart} />
-        
+        return (
+            <div className="list-group-wrapper">
+                <div className="view-mode-wrapper">
+                    <div className="view-mode">
+                        <i 
+                        className="fas fa-list active-view-icon"
+                        onClick={() => {}}></i>
+                        <i className="fas fa-th-large"
+                        onClick={() => {}}></i>
+                    </div>    
+                </div>
+                <BookList books={visibleBooks} onAddedToCart={onAddedToCart} viewMode={"list-group"}/>
+            </div> 
+        )
     }
 }
 

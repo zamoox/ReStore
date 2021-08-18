@@ -36,12 +36,12 @@ class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarColor01">
 
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to='/' className="nav-link" >Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/genres' className="nav-link">Genres</Link>
-                        </li> 
+                        </li>  */}
                     </ul>
 
                     <div className='cart-wrap'>

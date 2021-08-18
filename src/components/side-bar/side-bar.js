@@ -25,11 +25,6 @@ class SideBar extends Component {
         })
     }
 
-    isNavOpen = () => {
-        const bar = document.getElementById('wrapper');
-        console.log(bar);
-    }
-
     handleCheckbox = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         const name = e.target.name;
