@@ -1,12 +1,15 @@
 import React from 'react';
 import './book-list-item.css';
 
-const BookListItem = ({ book, onAddedToCart }) => {
+const BookListItem = ({ book, onAddedToCart, viewMode }) => {
+    
     const { title, author, price, genre, coverImage } = book;
+    const view = viewMode === 'list' ? "" : "_block-view" ;
+
     return (
         <div className="container">
             <div className="card mb-3">
-                <div className="card-wrap">
+                <div className={"card-wrap" + view}>
                     <div className="image-cover">
                         <img src={coverImage} alt="Book cover"></img>
                     </div>

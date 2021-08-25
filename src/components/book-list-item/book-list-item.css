@@ -8,19 +8,58 @@
     justify-content: space-between;
 }
 
-.image-cover {
+.card-wrap_block-view {
+    display: block;
+}
+
+.card-wrap .card-body {
+    padding: 1em 0 0 3em;
+}
+
+.card-wrap_block-view .card-body {
+    padding: 1.25em 0.5em 1em 1.25em; 
+}
+
+.card-wrap .image-cover {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     width: 180px;
-    margin: 1.2em;
 }
 
-.image-cover img{
+.card-wrap_block-view .image-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5em;
+}
+
+.card-wrap img{
     justify-self: right;
     max-width: 100%;
     height: 250px;
+}
+
+.card-wrap_block-view img{
+    justify-self: right;
+    max-width: 100%;
+    height: 250px;
+}
+
+.card-wrap_block-view .card-title {
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+}
+
+.card-wrap_block-view .card-text {
+    margin: 1em 0 0.2em 0;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.card-wrap_block-view .card-bottom-line {
+    margin: 0.5em 0 0 1em;
 }
 
 .card-text {
@@ -48,14 +87,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0 0 15px;    
+    margin: 15px 25px 0 15px;    
 }
 
-.price-wrap {
-    height: 75px;
-    border: 2px solid greenyellow;
-    border-radius: 50px;
-    padding: 22px 15px 0 15px;
+.card-wrap .price-wrap {
+    width: 60px;
+    height: 55px;
+    padding-top: 10px;
+    border-radius: 30px;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to left top, greenyellow 10%,  transparent 30%, transparent 70%, #adf2f7 90%);
+    border-image-slice: 1;
+}
+
+.card-wrap_block-view .price-wrap {
+    width: 60px;
+    height: 55px;
+    padding-top: 10px;
+    border-radius: 30px;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to left top, greenyellow 10%,  transparent 30%, transparent 70%, #adf2f7 90%);
+    border-image-slice: 1;
+}
+
+.card-wrap_block-view h3 {
+    font-size: 1.3rem;
 }
 
 .price {
@@ -63,10 +119,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.price-wrap h3 {
-   
 }
 
 .price-wrap span {

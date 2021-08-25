@@ -11,8 +11,11 @@ import { filterBy } from '../../utils';
 
 
 const BookList = ({books, onAddedToCart, viewMode}) => {
+
+    const view = viewMode === 'list' ? "item-list list-group container" : "block-list list-group container" ;
+
     return (
-            <div className={viewMode}>
+            <div className={view}>
                 {
                     books.map((book) => {
                         return (
@@ -20,6 +23,7 @@ const BookList = ({books, onAddedToCart, viewMode}) => {
                                 <BookListItem 
                                 book={book}
                                 onAddedToCart={() => onAddedToCart(book.id)} 
+                                viewMode={viewMode}
                                 />
                             </li>
                         ) 
@@ -32,7 +36,7 @@ const BookList = ({books, onAddedToCart, viewMode}) => {
 class BookListContainer extends Component {
 
     state = {
-        isActiveIcon: 'false'
+        viewMode: 'list'
     }
 
     componentDidMount () {
@@ -40,21 +44,37 @@ class BookListContainer extends Component {
     }
 
 
-    toggleViewMode () {
-        this.setState(state => {
-            return {
-             isActiveIcon: !state.isActiveIcon
-            }
-        })
+    toggleViewMode = (e) => {
+        const elem = e.target;
+        const iconList = document.getElementsByClassName('fas fa-list')[0];
+        const iconBlocks = document.getElementsByClassName('fas fa-th-large')[0];
+
+        // list mode
+        if (elem === iconList) {
+            iconList.classList.add('active-view-icon');
+            iconBlocks.classList.remove('active-view-icon');
+            this.setState({
+                viewMode: 'list'
+            })
+        }
+        // blocks mode
+        else if (elem === iconBlocks) {
+            iconBlocks.classList.add('active-view-icon');
+            iconList.classList.remove('active-view-icon');
+            this.setState({
+                viewMode: 'blocks'
+            })
+        }
+        
     }
 
     render () {
         const { books, loading, error, label, genre, onAddedToCart } = this.props;
-        const { isActiveIcon } = this.state;
+        const { viewMode } = this.state;
 
         if (loading) {
             return (
-                <div className="list-group">
+                <div className="item-list list-group">
                     <Spinner />
                 </div>
             )
@@ -78,12 +98,12 @@ class BookListContainer extends Component {
                     <div className="view-mode">
                         <i 
                         className="fas fa-list active-view-icon"
-                        onClick={() => {}}></i>
+                        onClick={this.toggleViewMode}></i>
                         <i className="fas fa-th-large"
-                        onClick={() => {}}></i>
+                        onClick={this.toggleViewMode}></i>
                     </div>    
                 </div>
-                <BookList books={visibleBooks} onAddedToCart={onAddedToCart} viewMode={"list-group"}/>
+                <BookList books={visibleBooks} onAddedToCart={onAddedToCart} viewMode={viewMode}/>
             </div> 
         )
     }
