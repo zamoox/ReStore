@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './side-bar.css';
-import { booksLoaded, booksRequested, booksError, fetchBooks, bookAddedToCart } from '../../actions';
+import { fetchBooks, bookAddedToCart } from '../../actions';
 
 
 class SideBar extends Component {
@@ -85,5 +85,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect()(SideBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
     

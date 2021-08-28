@@ -8,12 +8,6 @@ const HomePage = ({label}) => {
 
     const [ genre, setGenre ] = useState('');
 
-
-    const handleClick = (genre) => {
-        console.log(genre);
-        setGenre(genre);
-    }
-
     return (
         <div className="home-page">
             <div className="Row">

@@ -6,7 +6,6 @@ import './app.css';
 
 import Header from '../header';
 import { HomePage, CartPage } from '../pages';
-import Spinner from '../spinner';
 
 
 const App = ({ id }) => {

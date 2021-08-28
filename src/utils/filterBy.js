@@ -13,11 +13,11 @@ const filterBy = (data, fields, label) => {
     
     filteredItems = data.filter((element, arr, index) => {
         for (let i=0; i < fields.length; i++) {
-            console.log(`${element}: ${fields}: ${i}`)
             if (~element[fields[i]].toLowerCase().indexOf(label.toLowerCase())) {
                 return element;
             }            
         }
+        return null;
     })
 
      
