@@ -3,7 +3,7 @@
     background-color:#333333;
     color:white;
     transition: margin 0.5s;
-    margin: 0 0 0 -350px;
+    margin: 0 0 0 -320px;
 }
 
 .wrapper.is-nav-open {
@@ -12,7 +12,7 @@
 
 .side-bar {
     position: relative;
-    width: 350px;
+    width: 320px;
     height: 100vh;
 }
 
@@ -22,11 +22,11 @@
 
 .toggler {
     position: absolute;
-    left: 355px;
+    left: 325px;
     top: 10px;
     color: black;
     opacity: 0.4;
-    font-size: 2em;
+    font-size: 1.6em;
     z-index: 1;
 }
 
