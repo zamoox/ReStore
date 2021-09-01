@@ -7,6 +7,23 @@ import SearchPanel from "../search-panel";
 
 class Header extends React.Component {
 
+    componentDidMount () {
+        window.addEventListener('scroll', (e) => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                const nav = document.getElementsByClassName('navbar')[0];
+                nav.style.padding = "8px 16px 8px 16px";
+            }
+            else {
+                const nav = document.getElementsByClassName('navbar')[0];
+                nav.style.padding = "24px 16px 24px 16px";
+            }
+        })
+    }
+
+    // componentWillUnmount () {
+    //     window.removeEventListener('scroll');
+    // }
+
     render() {
 
         const { onSearch, cartItems } = this.props;
@@ -22,6 +39,8 @@ class Header extends React.Component {
             const el = document.getElementById('items-count');
             el.style.display = 'inline-block';
         }
+
+        
 
 
         return (

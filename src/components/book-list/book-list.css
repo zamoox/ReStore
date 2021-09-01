@@ -59,4 +59,17 @@
     pointer-events: none;
 }
 
+/* --------- Media queries ---------*/
+
+@media screen and (max-width: 425px) {
+/* --------- Block view ---------*/
+    .block-list {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.5vw;
+    }        
+    
+}
+
 
